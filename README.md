@@ -162,13 +162,14 @@ Open the notebooks inside the `notebook/` folder.
 - Preparing structured datasets for modeling  
 - Team-based Git workflow using branches and pull requests  
 
----
+---@
 
 ##  Team Contributions
 
-- **Data Cleaning:** Raj  
-- **Feature Engineering:** Harshal  
-- **Modeling:** Parth (Next Phase)
+- **Data Cleaning:** [Rajkoli145](https://github.com/Rajkoli145)
+- **Feature Engineering:**  [Harshal7506](https://github.com/Harshal7506)
+- **Modeling:** [Parth](https://github.com/Indianworldruler)
+- 
 
 ---
 
