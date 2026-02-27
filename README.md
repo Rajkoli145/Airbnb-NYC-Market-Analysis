@@ -1,183 +1,78 @@
-#  Airbnb NYC Market Analysis
+# 🏙️ Airbnb NYC Market Analysis & Revenue Predictor
 
-This project analyzes Airbnb listings in New York City to understand pricing behavior and predict whether a listing will generate high revenue.
-
-The project is built step by step — starting from raw data cleaning, moving into feature engineering, and preparing a dataset ready for machine learning modeling.
-
-This is a structured ML pipeline, not just a notebook experiment.
+An end-to-end Machine Learning project to optimize rental revenue in the New York City market using **Logistic Regression** and **K-Means Clustering**.
 
 ---
 
-##  Project Objective
+## 📌 1. Business Problem Statement
 
-The main goals of this project are:
-
-- Clean and preprocess Airbnb NYC dataset  
-- Remove outliers and handle missing values  
-- Create meaningful features from raw data  
-- Build a dataset ready for machine learning  
-- Predict whether a listing generates **high revenue**
+Hosts on Airbnb NYC face a complex challenge: how to balance **pricing** and **availability** to maximize revenue. The problem is two-fold:
+1. **Revenue Prediction**: Predicting if a listing's configuration will result in "High Revenue" (above-median performance).
+2. **Market Segmentation**: Identifying which market "segment" a listing belongs to so hosts can compare themselves against the right competitors.
 
 ---
 
-##  Dataset Information
+## 📈 2. Economic & Financial Concepts Applied
 
-- Source: Kaggle – Airbnb Open Data  
-- Raw dataset size: ~102,000 listings  
-- Cleaned dataset size: **69,477 listings**  
-- Final engineered dataset size: **69,477 rows × 29 columns**
-
----
-
-##  Project Workflow
-
-### 1. Data Cleaning
-
-Notebook: `notebook/Data_Inspection.ipynb`
-
-Steps performed:
-
-- Removed unnecessary columns (`id`, `host name`, `license`, etc.)
-- Converted `price` and `service fee` to numeric format
-- Removed extreme outliers:
-  - price > 1000  
-  - minimum nights > 365  
-- Removed invalid values (price ≤ 0, nights ≤ 0)
-- Handled missing values
-- Dropped rows with null values
-- Exported cleaned dataset to:
-  `data/processed/airbnb_cleaned.csv`
-  
-Final cleaned dataset shape:
-`(69477, 20)`
+This project bridges the gap between raw data and economic theory:
+- **Price Optimization**: Analyzing the trade-off between nightly rates and occupancy (availability) to reach the revenue frontier.
+- **Trust Economy (Demand Proxy)**: Using "Number of Reviews" as a financial signal for customer trust and historical demand.
+- **Market Segmentation**: Applying K-Means to identify distinct "tribes" of listings, allowing for segmented marketing and pricing strategies.
+- **Risk Analysis**: Predicting "Low Revenue" performance to help hosts mitigate the risk of vacant or underpriced properties.
 
 ---
 
-### 2️⃣ Feature Engineering
+## 🤖 3. AI & Data Science Techniques
 
-Notebook: `notebook/feature_engineering.ipynb`
-
-Steps performed:
-
-- Created new feature:
-  `high_revenue = 1 if revenue > median_revenue
-high_revenue = 0 otherwise`
-
-- Applied one-hot encoding to:
-- `room type`
-- `neighbourhood group`
-- `cancellation_policy`
-
-- Exported final dataset to:
-  `data/processed/airbnb_featured.csv`
-
-Final dataset shape:
-`(69477, 29)`
-
-Target distribution:
-
-- 0 → 34,747  
-- 1 → 34,730  
-
-The dataset is well balanced and ready for classification models.
+The system implements a structured ML pipeline:
+- **StandardScaler**: Normalizes feature scales for fair comparison.
+- **K-Means Clustering (Unsupervised)**: Segments the NYC market into 3 distinct operational clusters based on price-availability-demand dynamics.
+- **Logistic Regression (Supervised)**: A classification model that achieves high accuracy in predicting revenue performance.
+- **Data Preprocessing**: Handling ~102k records, removing outliers, and engineering the `high_revenue` target.
 
 ---
 
-### 3️⃣ Modeling (Next Phase)
+## 📂 4. Project Deliverables
 
-The engineered dataset is prepared for:
+### 📓 Google Colab / Jupyter Notebooks
+- [Data_Inspection.ipynb](notebook/Data_Inspection.ipynb): Advanced cleaning and preprocessing.
+- [eda_analysis.ipynb](notebook/eda_analysis.ipynb): Exploratory Data Analysis and visual insights.
+- [modeling.ipynb](notebook/modeling.ipynb): K-Means & Logistic Regression implementation with business interpretation.
 
-- Logistic Regression  
-- KMeans Clustering  
-- Model evaluation and comparison  
+### 🌎 Streamlit Deployment
+The app is fully functional with an interactive dashboard and real-time inference.
 
-This phase focuses on predicting whether a listing will generate high revenue.
+**[Launch Predictor Dashboard]**
+> `streamlit run app/app.py`
 
----
+### 📊 Model Output Screenshots
 
-## 📂 Project Structure
-```Airbnb-NYC-Market-Analysis/
-│
-├── data/
-│   ├── raw/
-│   │   └── airbnb_raw.csv
-│   └── processed/
-│       ├── airbnb_cleaned.csv
-│       └── airbnb_featured.csv
-│
-├── notebook/
-│   ├── Data_Inspection.ipynb
-│   └── feature_engineering.ipynb
-│
-├── images/
-├── requirements.txt
-└── README.md
-```
+#### Interpretable Prediction Interface
+![Dashboard Overview](/Users/rajkoli/.gemini/antigravity/brain/22e133f1-9518-47ef-9c15-778612ae8a70/streamlit_analysis_results_1772168246069.png)
+
+#### Market Position & Segmentation
+![Market Analysis](/Users/rajkoli/.gemini/antigravity/brain/22e133f1-9518-47ef-9c15-778612ae8a70/streamlit_app_prediction_result_1772167562735.png)
 
 ---
 
-##  Installation & Setup
-
-### 1. Clone the repository
-```
-git clone https://github.com//Airbnb-NYC-Market-Analysis.git
-
-```
-
-```
-cd Airbnb-NYC-Market-Analysis
-
-```
-
-### 2. Create virtual environment
-```
-python -m venv myenv
-
-```
-```
-source myenv/bin/activate
-
-```
-### 3. Install dependencies
-```
-pip install -r requirements.txt
-
-```
-### 4. Run Jupyter Notebook
-```
-jupyter notebook
-
-```
-
-Open the notebooks inside the `notebook/` folder.
+## 🔗 5. Dataset Information
+- **Source**: [Kaggle - Airbnb NYC Open Data](https://www.kaggle.com/datasets/arianazmoudeh/airbnbopendata)
 
 ---
 
-##  Key Learning Outcomes
+## 🛠️ 6. Installation & Execution
 
-- Real-world data cleaning process  
-- Handling missing values and outliers  
-- Feature engineering for machine learning  
-- Creating classification targets  
-- Preparing structured datasets for modeling  
-- Team-based Git workflow using branches and pull requests  
-
----@
-
-##  Team Contributions
-
-- **Data Cleaning:** [Rajkoli145](https://github.com/Rajkoli145)
-- **Feature Engineering:**  [Harshal7506](https://github.com/Harshal7506)
-- **Modeling:** [Parth](https://github.com/Indianworldruler)
-- 
+1. **Clone Repo**: `git clone https://github.com/Rajkoli145/Airbnb-NYC-Market-Analysis.git`
+2. **Environment**: `python -m venv .venv && source .venv/bin/activate`
+3. **Dependencies**: `pip install -r requirements.txt`
+4. **Run App**: `.venv/bin/streamlit run app/app.py`
 
 ---
 
-##  Final Note
+## 👥 7. Team Contributions
+- **Data Cleaning**: [Rajkoli145](https://github.com/Rajkoli145)
+- **Feature Engineering**: [Harshal7506](https://github.com/Harshal7506)
+- **Modeling & Deployment**: [Parth](https://github.com/Indianworldruler)
 
-This project focuses on building a strong foundation in data preprocessing and feature engineering before applying machine learning models.
-
-Clean data → Good features → Better models.
-
-That is the approach followed throughout this project.
-
+---
+*Developed for the AI in Finance/Business Mini-Project.*
