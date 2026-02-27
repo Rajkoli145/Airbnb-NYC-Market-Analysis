@@ -48,10 +48,11 @@ The app is fully functional with an interactive dashboard and real-time inferenc
 ###  Model Output Screenshots
 
 #### Interpretable Prediction Interface
-![Dashboard Overview](/Users/rajkoli/.gemini/antigravity/brain/22e133f1-9518-47ef-9c15-778612ae8a70/streamlit_analysis_results_1772168246069.png)
+<img width="1466" height="838" alt="Screenshot 2026-02-27 at 12 57 46 PM" src="https://github.com/user-attachments/assets/0c33d8d1-6ced-42b7-b419-89ca178768f4" />
+
 
 #### Market Position & Segmentation
-![Market Analysis](/Users/rajkoli/.gemini/antigravity/brain/22e133f1-9518-47ef-9c15-778612ae8a70/streamlit_app_prediction_result_1772167562735.png)
+<img width="1470" height="836" alt="Screenshot 2026-02-27 at 1 08 19 PM" src="https://github.com/user-attachments/assets/1198ff3c-f14c-4410-9d29-51d6da792e01" />
 
 ---
 
