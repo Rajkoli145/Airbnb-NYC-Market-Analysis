@@ -34,7 +34,7 @@ except Exception as e:
     st.stop()
 
 # --- HEADER ---
-st.title("🏙️ Airbnb NYC Revenue Predictor")
+st.title(" Airbnb NYC Revenue Predictor")
 st.markdown("""
     Transform your Airbnb listing into a high-revenue asset. This system uses **Logistic Regression** 
     and **KMeans Clustering** to analyze market positioning and predict performance.
@@ -45,12 +45,12 @@ st.divider()
 # --- INPUTS & PREDICTION ---
 with st.sidebar:
     st.header("Listing Details")
-    price = st.number_input("💵 Price per Night ($)", min_value=1.0, value=150.0, step=10.0)
-    availability = st.slider("📅 Availability (Days/Year)", 0, 365, 180)
-    reviews = st.number_input("⭐ Number of Reviews", min_value=0, value=20, step=1)
+    price = st.number_input(" Price per Night ($)", min_value=1.0, value=150.0, step=10.0)
+    availability = st.slider(" Availability (Days/Year)", 0, 365, 180)
+    reviews = st.number_input(" Number of Reviews", min_value=0, value=20, step=1)
     
-    predict_btn = st.button("🚀 Run Analysis", use_container_width=True)
-    if st.button("🧹 Clear & Start New", use_container_width=True):
+    predict_btn = st.button(" Run Analysis", use_container_width=True)
+    if st.button(" Clear & Start New", use_container_width=True):
         st.rerun()
 
 # --- PREDICTION LOGIC ---
@@ -71,9 +71,9 @@ if predict_btn:
     with main_col:
         # Result Card
         if prediction == 1:
-            st.success("### Prediction: **HIGH REVENUE** 🚀")
+            st.success("### Prediction: **HIGH REVENUE**")
         else:
-            st.warning("### Prediction: **LOW REVENUE** 📉")
+            st.warning("### Prediction: **LOW REVENUE**")
             
         # Probability Gauge (Dark Mode Compatible)
         gauge_color = "#28a745" if prediction == 1 else "#ffc107"
@@ -90,7 +90,7 @@ if predict_btn:
         """, unsafe_allow_html=True)
 
         # Feature Importance
-        st.subheader("📊 Why this prediction?")
+        st.subheader("Why this prediction?")
         coefs = model.coef_[0]
         features = ["Price", "Reviews", "Availability", "Market Segment"]
         importance_df = pd.DataFrame({"Feature": features, "Impact": coefs})
@@ -108,7 +108,7 @@ if predict_btn:
         st.altair_chart(importance_chart, use_container_width=True)
 
     with side_col:
-        st.subheader("📍 Market Positioning")
+        st.subheader("Market Positioning")
         if not data_sample.empty:
             # Market Position Scatter Plot
             user_point = pd.DataFrame({
